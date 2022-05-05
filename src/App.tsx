@@ -1,13 +1,13 @@
-import { useState } from "react";
 import "./App.css";
-import NewNoteInput from "./NewNoteInput";
 import { Provider } from "react-redux";
 import store from "./data/store/store";
+import { pokemonActions } from "./data/pokemons/pokemonsSlice";
+store.dispatch(pokemonActions.fetch(5));
+store.dispatch(pokemonActions.fetch(7));
 
 function App() {
 	return (
 		<>
-			<NewNoteInput addNote={() => {}} />
 			<ul>
 				<li>note</li>
 			</ul>
