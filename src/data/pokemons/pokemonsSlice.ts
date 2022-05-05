@@ -42,7 +42,7 @@ export const pokemonActions = {
 };
 
 export const getPokemonsListOffsetSelector = (store: RootState) => {
-	store.rootReducer.pokemons.offset;
+	store.rootReducer.pokemons;
 };
 
 export default slice.reducer;

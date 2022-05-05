@@ -10,12 +10,11 @@ import { PokemonsListResponse } from "../../models/PokemonsListResponse";
 
 function* fetchPokemons(action: PayloadAction<number | undefined>) {
 	try {
-		const offset: ReturnType<typeof getPokemonsListOffsetSelector> =
-			yield select(getPokemonsListOffsetSelector); // gets data from the store
+		const offset: number = yield select(getPokemonsListOffsetSelector); // gets data from the store
 		const pokemonData: ApiList<PokemonsListResponse> = yield call(
 			getPokemons,
-			offset,
-			action.payload ?? 10
+			action.payload ?? 10,
+			offset
 		);
 		yield put(pokemonActions.fetchSuccess(pokemonData));
 	} catch (error) {
