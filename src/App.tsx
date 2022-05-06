@@ -4,6 +4,9 @@ import store from "./data/store/store";
 import { pokemonActions } from "./data/pokemons/pokemonsSlice";
 store.dispatch(pokemonActions.fetch(5));
 store.dispatch(pokemonActions.fetch(7));
+setTimeout(() => {
+	store.dispatch(pokemonActions.deleteOne("butterfree"));
+}, 3000);
 
 function App() {
 	return (
