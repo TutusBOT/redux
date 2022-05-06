@@ -30,6 +30,14 @@ const slice = createSlice({
 		fetchFailure: (state, { payload }: PayloadAction<string>) => {
 			state.error = payload;
 		},
+		deleteAll: (state) => {
+			state.data = [];
+			state.error = null;
+			state.offset = 0;
+		},
+		deleteOne: (state, { payload }: PayloadAction<string>) => {
+			state.data = state.data.filter((pokemon) => pokemon.name !== payload);
+		},
 	},
 });
 
@@ -39,6 +47,8 @@ export const pokemonActions = {
 		"pokemons/fetchSuccess"
 	),
 	fetchFailure: createAction<unknown>("pokemons/fetchFailure"),
+	deleteAll: createAction("pokemons/deleteAll"),
+	deleteOne: createAction<string>("pokemons/deleteOne"),
 };
 
 export const getPokemonsListOffsetSelector = (store: RootState) => {
