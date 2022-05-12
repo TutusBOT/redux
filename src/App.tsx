@@ -6,14 +6,13 @@ store.dispatch(pokemonActions.fetch(5));
 store.dispatch(pokemonActions.fetch(7));
 setTimeout(() => {
 	store.dispatch(pokemonActions.deleteOne("butterfree"));
+	console.log(store.getState().rootReducer.pokemons);
 }, 3000);
 
 function App() {
 	return (
 		<>
-			<ul>
-				<li>note</li>
-			</ul>
+			{/* <PokemonList pokemonArray={store.getState().rootReducer.pokemons}/> */}
 		</>
 	);
 }
