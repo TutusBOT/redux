@@ -9,7 +9,7 @@ type PokemonsState = {
 	error: null | string;
 };
 
-const initialState: PokemonsState = {
+export const initialState: PokemonsState = {
 	data: [],
 	offset: 0,
 	error: null,
